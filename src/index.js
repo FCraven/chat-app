@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
-import { chat } from './redux/reducers';
+import chat from './redux/reducers';
 
 const store = createStore(chat);
 
