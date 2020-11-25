@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import './App.css';
-import { Sidebar } from './components/Sidebar'
-import { MessagesList } from './components/Sidebar'
-import { AddMessage } from './components/Sidebar'
+import {  AddMessage,
+          MessageList,
+          Sidebar } from './components'
 
 function App() {
   return (
     <div id='container'>
       <Sidebar />
       <section id='main'>
-        <MessagesList />
+        <MessageList />
         <AddMessage />
       </section>
     </div>

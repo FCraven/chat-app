@@ -6,14 +6,13 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
-import chat from './reducers';
+import { chat } from './redux/reducers';
 
 const store = createStore(chat);
 
-
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store='store'>
+    <Provider store={store}>
       <App />
     </Provider>
   </React.StrictMode>,
