@@ -1,6 +1,6 @@
 import AddMessage from './AddMessage'
 import Message from './Message'
-import MessageList from './MessageList'
+import MessagesList from './MessagesList'
 import Sidebar from './Sidebar'
 
 
@@ -8,6 +8,6 @@ import Sidebar from './Sidebar'
 export {
   AddMessage,
   Message,
-  MessageList,
+  MessagesList,
   Sidebar
 }
