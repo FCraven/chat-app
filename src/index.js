@@ -5,10 +5,12 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
+import { addUser } from './redux/actions'
 
 import chat from './redux/reducers';
 
 const store = createStore(chat);
+store.dispatch(addUser('Me'))
 
 ReactDOM.render(
   <React.StrictMode>
