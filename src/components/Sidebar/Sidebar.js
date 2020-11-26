@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
-
-const Sidebar =({users})=> (
+const SidebarComponent =({users})=> (
   <aside id='sidebar' className='sidebar'>
     <ul>
       {users.map(user=> <li key={user.id}>{user.name}</li>)}
@@ -10,7 +10,7 @@ const Sidebar =({users})=> (
   </aside>
 )
 
-Sidebar.PropTypes = {
+SidebarComponent.propTypes = {
   users: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
@@ -19,4 +19,8 @@ Sidebar.PropTypes = {
   ).isRequired
 }
 
-export default Sidebar;
+const mapState =state=> ({users: state.users})
+
+const Sidebar = connect(mapState,{})(SidebarComponent)
+
+export default Sidebar

@@ -1,7 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Message } from '../index'
+import { connect } from 'react-redux'
 
-const MessagesList =({messages})=> (
+const MessagesListComponent =({messages})=> (
   <section id='messages-list'>
     <ul>
       {messages.map(message => (
@@ -12,14 +14,21 @@ const MessagesList =({messages})=> (
     </ul>
   </section>
 )
-MessagesList.PropTypes = {
+
+MessagesListComponent.propTypes = {
   messages: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       message: PropTypes.string.isRequired,
       author: PropTypes.string.isRequired
     }).isRequired
-  ).isRequired
-}
+    ).isRequired
+  }
+
+
+const mapState =state=> ({messages: state.messages})
+
+const MessagesList = connect(mapState, {})(MessagesListComponent)
 
 export default MessagesList;
+

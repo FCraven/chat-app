@@ -1,7 +1,9 @@
-import React, { Component}  from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { addMessage } from '../../redux/actions'
 
-const AddMessage =(props)=> {
+const AddMessageComponent =(props)=> {
   let input
 
   return (
@@ -17,7 +19,7 @@ const AddMessage =(props)=> {
         }
         type='text'
         ref={(node) => {
-          input=node
+          input = node
         }}
       />
 
@@ -25,8 +27,17 @@ const AddMessage =(props)=> {
   )
 }
 
-AddMessage.PropTypes = {
+AddMessageComponent.propTypes = {
   dispatch: PropTypes.func.isRequired
 }
 
-export default AddMessage
+const mapDispatch= dispatch => ({
+  dispatch: (message,author) => {
+    dispatch(addMessage(message, author))
+  }
+})
+
+const AddMessage = connect(null, mapDispatch)(AddMessageComponent)
+
+export default AddMessage;
+
