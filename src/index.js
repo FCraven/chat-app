@@ -1,11 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import createSagaMiddleware from 'redux-saga'
+
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
 import { addUser } from './redux/actions'
+import setupSocket from './sockets'
+import handleNewMessage from './sagas'
+import username from './utils/name'
+
+const sagaMiddleware = createSagaMiddleware()
+
+
+//RESTART AT 1:11
 
 import chat from './redux/reducers';
 

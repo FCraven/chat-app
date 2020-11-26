@@ -39,3 +39,4 @@ const setupSocket =(dispatch, username)=> {
   return socket;
 }
 
+export default setupSocket;
